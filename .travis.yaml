@@ -3,7 +3,7 @@ sudo: require
 services:
   - docker
 
-before`-install:
+before_install:
   - docker build -t martinwright/docker-react -f Dockerfile.dev .
 
 script:
