@@ -6,9 +6,11 @@ stages:
 build:build-docker:
   image: node:14.18.3
   stage: build
+  script:
     - docker build -t martinwright/docker-react -f Dockerfile.dev .
 
 build:run-docker:
   image: node:14.18.3
   stage: build
+  script:
     - docker run -e CI=true martinwright/docker-react npm run test -- --coverage
