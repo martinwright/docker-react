@@ -1,0 +1,12 @@
+image: docker
+
+stages:
+  - build
+
+build:build-docker:
+  stage: build
+    - docker build -t martinwright/docker-react -f Dockerfile.dev .
+
+build:run-docker:
+  stage: build
+    - docker run -e CI=true martinwright/docker-react npm run test -- --coverage
